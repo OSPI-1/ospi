@@ -45,6 +45,13 @@
 
 用户输入和历史记录只保存在浏览器本地，不上传服务器。当前版本不需要配置 API key、token、域名或第三方统计脚本。
 
+## 当前生产部署
+
+- 托管平台：Vercel
+- GitHub 仓库：https://github.com/OSPI-1/ospi
+- 正式网址：https://ospi-nine.vercel.app/
+- `main` 分支推送后会自动触发 Vercel 部署。
+
 ## 回滚
 
-保留上一份经过 npm run verify 验证的 dist/ 产物即可回滚。正式发布前请由人工确认目标静态托管平台的访问权限和缓存策略。
+保留上一份经过 npm run verify 验证的 dist/ 产物即可回滚。生产回滚请通过 Vercel 的部署历史选择上一份已验证的部署版本。
