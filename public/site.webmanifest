@@ -1,0 +1,17 @@
+{
+  "name": "玄览｜传统术数文化工具",
+  "short_name": "玄览",
+  "lang": "zh-CN",
+  "start_url": "./#/",
+  "display": "standalone",
+  "background_color": "#f7f4ec",
+  "theme_color": "#17211b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
