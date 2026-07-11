@@ -18,15 +18,15 @@ export function ModuleCard({
 }) {
   return (
     <a
-      className="focus-ring group surface-card min-h-48 p-5 transition hover:-translate-y-0.5 hover:border-stone-300 hover:shadow-md"
+      className="module-card focus-ring group surface-card"
       href={href}
     >
-      <span className={`mb-5 grid h-12 w-12 place-items-center rounded-lg ${accent}`}>
+      <span className={`module-card-icon mb-5 grid place-items-center ${accent}`}>
         <Icon className="h-6 w-6" aria-hidden="true" />
       </span>
-      <span className="block text-xl font-semibold text-stone-950">{title}</span>
-      <span className="mt-2 block text-sm leading-6 text-stone-600">{subtitle}</span>
-      <span className="mt-5 block text-sm font-medium text-[#b23526]">{ctaLabel}</span>
+      <span className="module-card-title block text-xl font-semibold">{title}</span>
+      <span className="module-card-description mt-2 block text-sm leading-6">{subtitle}</span>
+      <span className="module-card-cta mt-5 block text-sm font-medium">{ctaLabel}</span>
     </a>
   );
 }
