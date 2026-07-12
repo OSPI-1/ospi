@@ -82,8 +82,8 @@ export function LiuyaoForm({
   };
 
   return (
-    <form className="surface-card space-y-5 p-5 sm:p-6" onSubmit={handleSubmit}>
-      <div className="flex items-start gap-3">
+    <form className="surface-card liuyao-form" onSubmit={handleSubmit}>
+      <div className="liuyao-form-heading">
         <Dices className="mt-0.5 h-5 w-5 text-[#b23526]" aria-hidden="true" />
         <div>
           <h2 className="text-lg font-semibold">{liuyaoFormCopy.title}</h2>
@@ -91,7 +91,8 @@ export function LiuyaoForm({
         </div>
       </div>
       <RandomDivinationPanel hasGenerated={hasRandomGenerated} onGenerate={handleRandomGenerate} />
-      <div className="space-y-3">
+      <p className="liuyao-order-guide">从下往上填写：初爻 → 二爻 → 三爻 → 四爻 → 五爻 → 上爻</p>
+      <div className="liuyao-input-list">
         {LIUYAO_VISUAL_ORDER.map((lineIndex) => (
           <YaoSelector
             index={lineIndex}
@@ -103,7 +104,7 @@ export function LiuyaoForm({
         ))}
       </div>
       {error ? <p className="error-message" role="alert">{error}</p> : null}
-      <div className="flex flex-wrap gap-3">
+      <div className="liuyao-form-actions">
         <button className="focus-ring primary-button" type="submit">
           {liuyaoFormCopy.submitButton}
         </button>

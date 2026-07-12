@@ -37,8 +37,8 @@ export function MovingLinesSummary({ lineStates }: { lineStates: readonly Liuyao
   const details = getMovingLineDetails(lineStates);
 
   return (
-    <section className="surface-card p-4">
-      <h3 className="text-base font-semibold text-stone-950">{copy.movingLinesLabel}</h3>
+    <section className="liuyao-change-flow surface-card p-4">
+      <h3 className="liuyao-change-flow-title text-base font-semibold text-stone-950">{copy.movingLinesLabel}</h3>
       {details.length === 0 ? (
         <div className="mt-2 text-sm leading-6 text-stone-600">
           <p>{copy.noMovingLines}</p>

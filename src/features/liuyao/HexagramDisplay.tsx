@@ -12,7 +12,8 @@ export function HexagramDisplay({
   movingIndexes,
   meaning,
   meaningTitle,
-  changed = false
+  changed = false,
+  variant = "secondary"
 }: {
   label: string;
   name: string;
@@ -23,6 +24,7 @@ export function HexagramDisplay({
   meaning: string;
   meaningTitle: string;
   changed?: boolean;
+  variant?: "primary" | "secondary";
 }) {
   const copy = resultCopy.liuyao;
   const upperLower = resultCopy.shared.upperLowerText
@@ -30,9 +32,16 @@ export function HexagramDisplay({
     .replace("{lower}", lowerName);
 
   return (
-    <article className="subtle-card p-4 sm:p-5">
-      <p className="text-sm font-medium text-[#b23526]">{label}</p>
-      <h3 className="mt-1 text-2xl font-semibold text-stone-950">{name}</h3>
+    <article
+      className={[
+        "liuyao-hexagram",
+        `liuyao-${variant}-result`,
+        "subtle-card",
+        variant === "primary" ? "p-5 sm:p-7" : "p-4 sm:p-5"
+      ].join(" ")}
+    >
+      <p className={`liuyao-${variant}-label text-sm font-medium text-[#b23526]`}>{label}</p>
+      <h3 className={`liuyao-${variant}-name mt-1 text-2xl font-semibold text-stone-950`}>{name}</h3>
       <p className="mt-2 text-sm text-stone-600">{upperLower}</p>
 
       <div className="surface-card mt-4 p-3 shadow-none">

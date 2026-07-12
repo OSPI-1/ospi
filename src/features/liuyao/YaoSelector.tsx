@@ -74,18 +74,18 @@ export function YaoSelector({
 
   return (
     <fieldset
-      className="rounded-lg border border-stone-200 bg-stone-50 p-4"
+      className="liuyao-row"
       data-yao-index={index}
       data-yao-position={label}
     >
       <legend className="px-1 text-sm font-semibold text-stone-900">{label}</legend>
-      <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="liuyao-row-summary">
         <YaoLinePreview isMoving={selectedOption.isMoving} isYang={selectedOption.isYang} />
         <p className="text-sm text-stone-600">
           {selectedOption.name} · {selectedOption.yinYangLabel} · {selectedOption.movementLabel}
         </p>
       </div>
-      <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4" role="radiogroup" aria-label={`${label}选择`}>
+      <div className="liuyao-choice-grid" role="radiogroup" aria-label={`${label}选择`}>
         {YAO_OPTIONS.map((option) => {
           const checked = option.value === value;
           return (
@@ -94,7 +94,7 @@ export function YaoSelector({
               aria-label={`${label} ${option.name} ${option.value}，${option.description}`}
               className={`focus-ring flex min-h-16 cursor-pointer flex-col justify-between rounded-lg border p-3 text-left text-sm transition ${
                 checked
-                  ? "border-[#b23526] bg-[#f8ebdf] text-stone-950"
+                ? "liuyao-choice--selected"
                   : "border-stone-200 bg-white text-stone-700 hover:bg-stone-100"
               }`}
               key={option.value}

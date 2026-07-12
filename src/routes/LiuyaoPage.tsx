@@ -36,10 +36,11 @@ export function LiuyaoPage() {
   return (
     <section className="page-shell page-shell-grid">
       <div className="page-main-column">
-        <div className="page-heading">
+        <div className="page-heading liuyao-page-header">
           <p className="page-eyebrow">{moduleCopy.liuyao.eyebrow}</p>
-          <h1 className="page-title">{moduleCopy.liuyao.title}</h1>
-          <p className="page-description">{moduleCopy.liuyao.background}</p>
+          <h1 className="page-title">从六次爻值出发，观察卦象与变化。</h1>
+          <p className="page-description">可以手动选择六爻，也可以使用三枚硬币模拟生成。</p>
+          <p className="liuyao-page-order">输入顺序从初爻开始，依次到上爻。</p>
         </div>
         <LiuyaoForm onResult={handleResult} />
         {result ? <LiuyaoResult result={result} /> : null}

@@ -9,7 +9,7 @@ export function LiuyaoResult({ result }: { result: LiuyaoResultType }) {
 
   return (
     <ResultPanel summary={copy.summary} title={copy.title}>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="liuyao-result-flow">
         <HexagramDisplay
           label={copy.originalHexagramLabel}
           lines={result.originalYinYangLines}
@@ -19,7 +19,9 @@ export function LiuyaoResult({ result }: { result: LiuyaoResultType }) {
           movingIndexes={result.movingIndexes}
           name={result.hexagram.name}
           upperName={result.upper.name}
+          variant="primary"
         />
+        <MovingLinesSummary lineStates={result.lineStates} />
         <HexagramDisplay
           changed
           label={copy.changedHexagramLabel}
@@ -30,9 +32,9 @@ export function LiuyaoResult({ result }: { result: LiuyaoResultType }) {
           movingIndexes={result.movingIndexes}
           name={result.changedHexagram.name}
           upperName={result.changedUpper.name}
+          variant="secondary"
         />
       </div>
-      <MovingLinesSummary lineStates={result.lineStates} />
       <div className="subtle-card p-4">
         <h3 className="text-base font-semibold">{copy.reflectionTitle}</h3>
         <p className="mt-2 text-sm leading-6 text-stone-600">{result.reflection}</p>
