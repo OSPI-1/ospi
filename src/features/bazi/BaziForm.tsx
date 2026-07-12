@@ -1,7 +1,6 @@
 import { CalendarDays, RotateCcw } from "lucide-react";
 import { useState } from "react";
 import { baziInputCopy } from "../../data/uiCopy";
-import { BaziAssumptionNotice } from "./BaziAssumptionNotice";
 import { calculateBazi } from "./baziEngine";
 import type { BaziInput, BaziResult } from "./baziTypes";
 
@@ -104,18 +103,17 @@ export function BaziForm({ onResult }: { onResult: (input: BaziInput, result: Ba
 
   return (
     <form
-      className="surface-card space-y-5 p-5 sm:p-6"
+      className="surface-card bazi-form"
       noValidate
       onSubmit={handleSubmit}
     >
-      <div className="flex items-center gap-3">
+      <div className="bazi-form-heading">
         <CalendarDays className="h-5 w-5 text-[#b23526]" aria-hidden="true" />
         <h2 className="text-lg font-semibold">{baziInputCopy.formTitle}</h2>
       </div>
 
-      <BaziAssumptionNotice />
-
-      <div className="grid gap-4 sm:grid-cols-2">
+      <p className="bazi-form-helper">公历日期与当地民用时间用于基础计算；完整假设将在结果后说明。</p>
+      <div className="bazi-form-grid">
         <label className="text-sm font-medium text-stone-700" htmlFor="bazi-birth-date">
           {baziInputCopy.dateLabel}
           <input
@@ -144,7 +142,7 @@ export function BaziForm({ onResult }: { onResult: (input: BaziInput, result: Ba
         </label>
       </div>
 
-      <label className="block text-sm font-medium text-stone-700" htmlFor="bazi-gender">
+      <label className="bazi-gender-field" htmlFor="bazi-gender">
         {baziInputCopy.genderLabel}
         <select
           className="focus-ring field-control"
@@ -159,7 +157,7 @@ export function BaziForm({ onResult }: { onResult: (input: BaziInput, result: Ba
         <span className="mt-1 block text-xs font-normal text-stone-500">{baziInputCopy.genderNote}</span>
       </label>
 
-      <p className="text-sm leading-6 text-stone-600">{baziInputCopy.privacyNote}</p>
+      <p className="bazi-form-privacy">{baziInputCopy.privacyNote}</p>
 
       {error ? (
         <p aria-live="assertive" className="error-message" id="bazi-input-error" role="alert">
@@ -167,7 +165,7 @@ export function BaziForm({ onResult }: { onResult: (input: BaziInput, result: Ba
         </p>
       ) : null}
 
-      <div className="flex flex-wrap gap-3">
+      <div className="bazi-form-actions">
         <button className="focus-ring primary-button" type="submit">
           {baziInputCopy.submitButton}
         </button>

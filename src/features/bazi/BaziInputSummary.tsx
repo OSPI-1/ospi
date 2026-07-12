@@ -11,11 +11,11 @@ export function BaziInputSummary({ input }: { input: BaziInput }) {
   const gender = input.gender ?? "unspecified";
 
   return (
-    <section className="surface-card p-5 sm:p-6" aria-labelledby="bazi-input-summary-title">
+    <section className="bazi-summary" aria-labelledby="bazi-input-summary-title">
       <h2 className="text-lg font-semibold text-stone-950" id="bazi-input-summary-title">
         {baziInputCopy.summaryTitle}
       </h2>
-      <dl className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <dl className="bazi-summary-grid">
         <div className="subtle-card px-3 py-2">
           <dt className="text-xs text-stone-500">{baziInputCopy.summaryDate}</dt>
           <dd className="mt-1 break-words text-sm font-medium text-stone-900">{input.birthDate}</dd>

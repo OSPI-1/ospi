@@ -2,7 +2,7 @@ import { baziInputCopy } from "../../data/uiCopy";
 
 export function BaziAssumptionNotice() {
   return (
-    <aside className="subtle-card p-4" aria-labelledby="bazi-assumptions-title">
+    <aside className="bazi-assumption" aria-labelledby="bazi-assumptions-title">
       <h3 className="text-sm font-semibold text-stone-900" id="bazi-assumptions-title">
         {baziInputCopy.assumptionsTitle}
       </h3>

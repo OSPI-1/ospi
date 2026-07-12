@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { HistoryList } from "../components/HistoryList";
 import { moduleCopy } from "../data/moduleCopy";
-import { BaziAssumptionNotice } from "../features/bazi/BaziAssumptionNotice";
 import { BaziForm } from "../features/bazi/BaziForm";
-import { BaziInputSummary } from "../features/bazi/BaziInputSummary";
 import { BaziResult } from "../features/bazi/BaziResult";
 import type { BaziInput, BaziResult as BaziResultType } from "../features/bazi/baziTypes";
 import { saveHistoryItem } from "../utils/storage";
@@ -36,17 +34,16 @@ export function BaziPage() {
   return (
     <section className="page-shell page-shell-grid">
       <div className="page-main-column">
-        <div className="page-heading">
+        <div className="page-heading bazi-page-header">
           <p className="page-eyebrow">{moduleCopy.bazi.eyebrow}</p>
-          <h1 className="page-title">{moduleCopy.bazi.title}</h1>
-          <p className="page-description">{moduleCopy.bazi.background}</p>
+          <h1 className="page-title">从出生时刻出发，观察四柱与五行结构。</h1>
+          <p className="page-description">输入公历出生日期与当地民用时间，生成基础四柱和五行分布。</p>
+          <p className="bazi-page-boundary">当前不进行出生地点、经度或真太阳时校正。</p>
         </div>
         <BaziForm onResult={handleResult} />
         {resultState ? (
           <>
-            <BaziInputSummary input={resultState.input} />
-            <BaziAssumptionNotice />
-            <BaziResult result={resultState.result} />
+            <BaziResult input={resultState.input} result={resultState.result} />
           </>
         ) : null}
       </div>

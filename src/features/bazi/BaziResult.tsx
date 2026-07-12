@@ -2,13 +2,16 @@ import { ResultPanel } from "../../components/ResultPanel";
 import { resultCopy } from "../../data/uiCopy";
 import { FiveElementsChart } from "./FiveElementsChart";
 import { FourPillarsDisplay } from "./FourPillarsDisplay";
-import type { BaziResult as BaziResultType } from "./baziTypes";
+import { BaziInputSummary } from "./BaziInputSummary";
+import { BaziAssumptionNotice } from "./BaziAssumptionNotice";
+import type { BaziInput, BaziResult as BaziResultType } from "./baziTypes";
 
-export function BaziResult({ result }: { result: BaziResultType }) {
+export function BaziResult({ input, result }: { input: BaziInput; result: BaziResultType }) {
   const copy = resultCopy.bazi;
 
   return (
     <ResultPanel summary={copy.summary} title={copy.title}>
+      <BaziInputSummary input={input} />
       <FourPillarsDisplay pillars={result.pillars} />
       <FiveElementsChart dominantElements={result.dominantElements} elementCounts={result.elementCounts} />
 
@@ -33,6 +36,8 @@ export function BaziResult({ result }: { result: BaziResultType }) {
           <p className="mt-2 text-sm leading-6 text-stone-600">{result.assumption}</p>
         </section>
       ) : null}
+
+      <BaziAssumptionNotice />
 
       <section className="border-t border-stone-200 pt-4" aria-labelledby="bazi-attention-title">
         <h3 className="text-base font-semibold text-stone-950" id="bazi-attention-title">
